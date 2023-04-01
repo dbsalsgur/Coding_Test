@@ -3,7 +3,7 @@ package level0;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FindingLeastValue2 {
+public class FindingLeastValue_2 {
 
 	public int solution(int[] array) {
         int maxCount = 0;

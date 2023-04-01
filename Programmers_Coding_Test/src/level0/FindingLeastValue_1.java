@@ -1,6 +1,6 @@
 package level0;
 
-public class FindingLeastValue1 {
+public class FindingLeastValue_1 {
 
 	public int solution(int[] array) {
         int answer = array[0];
