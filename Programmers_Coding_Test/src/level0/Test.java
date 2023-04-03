@@ -1,34 +1,23 @@
 package level0;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-
 public class Test {
 
 	public static void main(String[] args) {
-		int n = 15;
-		int size = 0;
-		if (n%2 == 0) {
-			size = n/2;
+		int n = 10;
+		int temp = 0;
+		int answer = 0;
+		if (n%6 == 0) {
+			answer = n/6;
 		} else {
-			size = n/2+1;
-		}
-		ArrayList<Integer> numbers = new ArrayList<>();
-		for (int i = 1; i <= n; i++) {
-			if (i%2 == 0) {
-				continue;
+			for (int i = 1; i <= n*6; i++) {
+				if (i%n == 0 && i%6 == 0) {
+					temp = i;
+					break;
+				}
 			}
-			numbers.add(i);
 		}
-		int[] answer = new int[size];
-		Iterator it = numbers.iterator();
-		int j = 0;
-		while (it.hasNext()) {
-			answer[j] = (int)it.next();
-			j++;
-		}
-		System.out.println(Arrays.toString(answer));
+		answer = temp/6;
+		System.out.println(answer);
 	}
 }
 
