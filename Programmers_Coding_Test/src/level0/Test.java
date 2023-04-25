@@ -1,15 +1,19 @@
 package level0;
 
+import java.util.Scanner;
+
 public class Test {
 
 	public static void main(String[] args) {
-		String my_string = "rkawkaos";
-		char[] str = my_string.toCharArray();
-		String answer = "";
-		for (int i = 0; i < str.length; i++) {
-			answer += str[str.length-1-i];
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+        	for (int j = 1; j <= i; j++) {
+				System.out.print("*");
+			}
+        	System.out.println();
 		}
-        System.out.println(answer);
-	}
+    }
 }
 
