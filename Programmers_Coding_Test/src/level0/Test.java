@@ -1,34 +1,47 @@
 package level0;
 
+import java.util.HashMap;
 
 public class Test {
 
 	public static void main(String[] args) {
 		
-		int age = 100;
+		int[] emergency = {30, 10, 23, 6, 100};
+		int[] sortEmergency = emergency.clone();
 		
-		char[] key = new char[10];
-		char j = 'a';
-		for (int i = 0; i < key.length; i++) {
-			key[i] = j;
-			j++;
+        int[] answer = new int[emergency.length];
+        sort(sortEmergency);
+        for (int i : sortEmergency) {
+			System.out.println(i);
 		}
-		int single = age%10;
-		int decimal = (age-single)%100/10;
-		int hundredth = (age-decimal-single)%1000/1000;
-		
-		System.out.println(hundredth);
-		
-        String answer = String.valueOf(key[hundredth]) + String.valueOf(key[decimal]) + String.valueOf(key[single]);
-		if(age < 10) {
-			answer = String.valueOf(key[single]);
-		} else if(age < 100) {
-			answer = String.valueOf(key[decimal]) + String.valueOf(key[single]);
-		} else if(age == 1000) {
-			answer = "baaa";
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 1; i <= answer.length; i++) {
+			map.put(sortEmergency[answer.length-i], i);
 		}
-        
-        System.out.println(answer);
+        for (int i = 0; i < answer.length; i++) {
+			answer[i] = map.get(emergency[i]);
+		}
+        for (int i : answer) {
+			System.out.println(i);
+		}
     }
+	
+	public static void sort(int[] array) {
+		int temp = 0;
+		for (int i = 0; i < array.length-1; i++) {
+			for (int j = 0; j < array.length-1; j++) {
+				if (array[j] > array[j+1]) {
+					temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+				for (int k : array) {
+					System.out.print(k+", ");
+				}
+				System.out.println();
+			}
+		}
+
+	}
 }
 
