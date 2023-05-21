@@ -9,15 +9,22 @@ public class Test {
 		
 		Long numerator = 1L;
 		Long denominator = 1L;
+		int j = balls-share;
 		
 		for (int i = balls; i > share; i--) {
 			numerator *= i;
+			if (numerator%j == 0) {
+				numerator /= j;
+			} else {
+				denominator *= j;
+			}
+			j--;
 			System.out.println("numer="+numerator);
 		}
-		for (int i = balls-share; i >= 1; i--) {
-			denominator *= i;
-			System.out.println("deno="+denominator);
-		}
+//		for (int i = balls-share; i >= 1; i--) {
+//			denominator *= i;
+//			System.out.println("deno="+denominator);
+//		}
 //        int nFac = 1;
 //        int mFac = 1;
 //        int lFac = 1;
