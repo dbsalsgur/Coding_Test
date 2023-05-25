@@ -3,13 +3,13 @@ package level0;
 public class MakeItTwoDimensional {
 
 	public int[][] solution(int[] num_list, int n) {
-		int[][] answer = {};
-		for (int i = 0; i < num_list.length; i++) {
-			for (int j = 0; j < num_list.length; j++) {
-				answer[i][j] = 
+		int k = 0;
+		int[][] answer = new int[num_list.length/n][n];
+		for (int i = 0; i < num_list.length/n; i++) {
+			for (int j = 0; j < n; j++) {
+				answer[i][j] = num_list[k++];
 			}
 		}
-        
         return answer;
     }
 }
