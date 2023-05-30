@@ -3,10 +3,22 @@ package level0;
 public class BallThrowing {
 
 	public int solution(int[] numbers, int k) {
-		while(true) {
-			numbers 
+		int i = 0;
+		int cnt = 0;
+		int answer = 0;
+		while(i < numbers.length) {
+			answer = numbers[i]; 
+			cnt++;
+			if (i == numbers.length - 1) {
+				i = -1;
+			} else if (i == numbers.length - 2){
+				i = -2;
+			}
+			if (cnt == k) {
+				break;
+			}
+			i += 2;
 		}
-        int answer = 0;
         return answer;
     }
 }

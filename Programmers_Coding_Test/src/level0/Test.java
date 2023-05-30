@@ -3,18 +3,26 @@ package level0;
 public class Test {
 
 	public static void main(String[] args) {
-		int[] num_list = {1,2,3,4,5,6,7,8};
-		int n = 2;
-		int k = 0;
-		int[][] answer = new int[num_list.length/n][n];
-		for (int i = 0; i < num_list.length/n; i++) {
-			for (int j = 0; j < n; j++) {
-				answer[i][j] = num_list[k++];
+		int[] numbers = {1,2,3,4};
+		int k = 2;
+		
+		int i = 0;
+		int cnt = 0;
+		int answer = 0;
+		while(i < numbers.length) {
+			answer = numbers[i]; 
+			cnt++;
+			if (i == numbers.length - 1) {
+				i = -1;
+			} else if (i == numbers.length - 2){
+				i = -2;
 			}
+			if (cnt == k) {
+				break;
+			}
+			i += 2;
 		}
-		for (int[] is : answer) {
-			System.out.println(is);
-		}
+		System.out.println(answer);
 	}
 }
 
