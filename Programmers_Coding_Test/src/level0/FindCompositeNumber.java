@@ -3,7 +3,20 @@ package level0;
 public class FindCompositeNumber {
 
 	public int solution(int n) {
-        int answer = 0;
+		int answer = 0;
+        
+        for (int i = 1; i <= n; i++) {
+        	int cnt = 0;
+        	for (int j = 1; j <= n; j++) {
+    			if (i%j == 0) {
+    				cnt++;
+    			}
+    		}
+        	if (cnt >= 3) {
+				answer++;
+			}
+        	cnt = 0;
+		}
         return answer;
     }
 }
@@ -13,6 +26,6 @@ public class FindCompositeNumber {
 //제한사항
 //1 ≤ n ≤ 100
 //입출력 예
-//n	result
+//n		result
 //10	5
 //15	8
