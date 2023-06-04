@@ -1,9 +1,19 @@
 package level0;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class FindMaximumValue {
 
 	public int solution(int[] numbers) {
-        int answer = 0;
+		
+		List list = new ArrayList<>();
+		for (int i = 0; i < numbers.length; i++) {
+			list.add(numbers[i]);
+		}
+		Collections.sort(list);
+        int answer = (int)list.get(numbers.length-1)*(int)list.get(numbers.length-2);
         return answer;
     }
 	
