@@ -1,26 +1,12 @@
 package level0;
 
-import java.util.LinkedList;
-
 public class RemoveVowel {
 
 	public String solution(String my_string) {
-		char[] charArray = my_string.toCharArray();
-		LinkedList list = new LinkedList();
-		char[] afterArray = new char[charArray.length];
-		for (int i = 0; i < charArray.length; i++) {
-			list.add(i);
-		}
-		for (int i = 0; i  < charArray.length; i++) {
-			if (list.get(i).equals('a')|| list.get(i).equals('e')|| 
-				list.get(i).equals('i')|| list.get(i).equals('o')|| 
-				list.get(i).equals('u')) {
-				list.remove(i);
-			}
-		}
-		String answer = "";
-		for (char c : afterArray) {
-			answer += c;
+		String answer = my_string;
+		String[] vowels = {"a", "e", "i", "o", "u"};
+		for (String string : vowels) {
+			answer = answer.replaceAll(string, "");
 		}
         return answer;
     }
