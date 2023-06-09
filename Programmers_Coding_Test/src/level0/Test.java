@@ -1,20 +1,33 @@
 package level0;
 
+import java.util.LinkedList;
+
 public class Test {
 
 	public static void main(String[] args) {
-		int n = 7;
+		String my_string = "bus";
 		
-		int answer = 0;
-		int temp = 1;
-		for (int i = 1; true; i++) {
-			temp *= i;
-			if (temp >= n) {
-				break;
+		char[] charArray = my_string.toCharArray();
+		LinkedList list = new LinkedList();
+		char[] afterArray = new char[charArray.length];
+		for (int i = 0; i < charArray.length; i++) {
+			list.add(i);
+			System.out.println(list.get(i));
+		}
+		for (int i = 0; i  < charArray.length; i++) {
+			if (list.get(i).equals('a')|| list.get(i).equals('e')|| 
+				list.get(i).equals('i')|| list.get(i).equals('o')|| 
+				list.get(i).equals('u')) {
+				list.remove(i);
 			}
-			System.out.println("temp = "+temp);
-			answer++;
-			System.out.println(answer);
+		}
+		for (int i = 0; i < afterArray.length; i++) {
+			afterArray[i] = (char)list.get(i);
+		}
+		String answer = "";
+		for (char c : afterArray) {
+			System.out.println(c);
+			answer += c;
 		}
         System.out.println(answer);
 	}
