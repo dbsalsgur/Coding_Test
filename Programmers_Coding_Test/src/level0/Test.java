@@ -1,31 +1,23 @@
 package level0;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Test {
 
 	public static void main(String[] args) {
-		String my_string = "hi12392";
+		String my_string = "aAb1B2cC34oOp";
 		
-		Pattern pattern = Pattern.compile("[0-9]");
-		String matched_num = "";
+		String regex = "[a-zA-Z]";
+		my_string = my_string.replaceAll(regex, "");
 		
-		Matcher matcher = pattern.matcher(my_string);
+		int[] num = new int[my_string.length()];
+		for (int i = 0; i < num.length; i++) {
+			num[i] = my_string.charAt(i) - '0';
+		}
 		
-		while (matcher.find()) {
-			matched_num = matched_num + matcher.group();
-			System.out.println(matcher.group());
+        int answer = 0;
+        for (int i : num) {
+			answer += i;
 		}
-        int[] answer = new int[matched_num.length()];
-        for (int i = 0; i < answer.length; i++) {
-			answer[i] = matched_num.charAt(i) - '0';
-		}
-        Arrays.sort(answer);
-        for (int i : answer) {
-			System.out.println(i);
-		}
+        System.out.println(answer);
 	}
 }
 
