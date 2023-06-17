@@ -2,7 +2,25 @@ package level0;
 
 public class Factoration {
 	public int[] solution(int n) {
-        int[] answer = {};
+		int[] answer = {};
+		for (int i = 0; i < n; i++) {
+			for (int j = 2; j <= n; j++) {
+				int cnt = 0;
+				for (int k = 0; k < n; k++) {
+					if (n%j == 0) {
+						cnt++;
+					}
+				}
+				if (!(cnt == 2)) {
+					break;
+				}
+				if (n%j == 0) {
+					answer[i] = j;
+					break;
+				}
+			}
+		}
+        
         return answer;
     }
 }
