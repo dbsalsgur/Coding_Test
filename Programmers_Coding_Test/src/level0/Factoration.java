@@ -1,8 +1,11 @@
 package level0;
 
+import java.util.ArrayList;
+
 public class Factoration {
 	public int[] solution(int n) {
-		int[] answer = {};
+		ArrayList list = new ArrayList();
+		
 		for (int i = 0; i < n; i++) {
 			for (int j = 2; j <= n; j++) {
 				int cnt = 0;
@@ -15,10 +18,15 @@ public class Factoration {
 					break;
 				}
 				if (n%j == 0) {
-					answer[i] = j;
+					list.add(j);
 					break;
 				}
 			}
+		}
+		
+		int[] answer = new int[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			answer[i] = (int)list.get(i);
 		}
         
         return answer;
