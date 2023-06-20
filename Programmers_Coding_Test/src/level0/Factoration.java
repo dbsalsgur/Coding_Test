@@ -3,29 +3,34 @@ package level0;
 import java.util.ArrayList;
 
 public class Factoration {
+	
 	public int[] solution(int n) {
+		
+		int m = n;
 		ArrayList list = new ArrayList();
 		
 		for (int i = 0; i < n; i++) {
 			for (int j = 2; j <= n; j++) {
-				int cnt = 0;
-				for (int k = 0; k < n; k++) {
-					if (n%j == 0) {
-						cnt++;
-					}
-				}
-				if (!(cnt == 2)) {
-					break;
-				}
-				if (n%j == 0) {
+				if (m%j == 0) {
+					m = m/j;
 					list.add(j);
 					break;
 				}
 			}
 		}
+		for (int i = 1; i < list.size(); i++) {
+			try {
+				while (list.get(i).equals(list.get(i-1))) {
+					list.remove(i);
+				}
+			} catch (IndexOutOfBoundsException e) {
+				break;
+			}
+			
+		}
 		
 		int[] answer = new int[list.size()];
-		for (int i = 0; i < list.size(); i++) {
+		for (int i = 0; i < list.size(); i++){
 			answer[i] = (int)list.get(i);
 		}
         
