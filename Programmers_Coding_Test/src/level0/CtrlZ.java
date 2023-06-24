@@ -2,7 +2,16 @@ package level0;
 
 public class CtrlZ {
 	public int solution(String s) {
-        int answer = 0;
+		String[] sumArray = s.split(" ");
+		
+		int answer = 0;
+		for (int i = 0; i < sumArray.length; i++) {
+			if (!sumArray[i].equals("Z")) {
+				answer += Integer.parseInt(sumArray[i]);
+			} else {
+				answer -= Integer.parseInt(sumArray[i-1]);
+			}
+		}
         return answer;
     }
 }
