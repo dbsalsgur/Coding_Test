@@ -1,24 +1,19 @@
 package level0;
 
-import java.lang.reflect.Array;
 
 public class Test {
 
 	public static void main(String[] args) {
-		String s = "1 2 Z 3";
+		int[][] dots = {{1,1}, {2,1}, {2,2}, {1,2}};
 		
-		String[] sumArray = s.split(" ");
-		
-		int answer = 0;
-		for (int i = 0; i < sumArray.length; i++) {
-			if (!sumArray[i].equals("Z")) {
-				answer += Integer.parseInt(sumArray[i]);
-				System.out.println(Integer.parseInt(sumArray[i]));
-			} else {
-				answer -= Integer.parseInt(sumArray[i-1]);
-				System.out.println("a");
-			}
+		int answer = (dots[1][0]-dots[0][0])*(dots[2][1]-dots[1][1]);
+		if (answer < 0) {
+			answer *= -1;
 		}
+		System.out.println(dots[1][0]);
+		System.out.println(dots[0][0]);
+		System.out.println(dots[1][1]);
+		System.out.println(dots[0][1]);
 		System.out.println(answer);
 	}
 }

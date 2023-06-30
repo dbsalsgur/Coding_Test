@@ -2,7 +2,11 @@ package level0;
 
 public class AreaOfRectangle {
 	public int solution(int[][] dots) {
-        int answer = 0;
+		
+		int answer = (dots[1][0]-dots[0][0])*(dots[2][1]-dots[1][1]);
+		if (answer < 0) {
+			answer *= -1;
+		}
         return answer;
     }
 }
