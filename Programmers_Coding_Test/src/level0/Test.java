@@ -4,17 +4,39 @@ package level0;
 public class Test {
 
 	public static void main(String[] args) {
-		int[][] dots = {{1,1}, {2,1}, {2,2}, {1,2}};
+		String[] keyinput = {"left", "right", "up", "right", "right"};
+		int[] board = {1, 11};
 		
-		int answer = (dots[1][0]-dots[0][0])*(dots[2][1]-dots[1][1]);
-		if (answer < 0) {
-			answer *= -1;
+		int[] answer = {0,0};
+        int maxX = (board[0]-1)/2;
+        int maxY = (board[1]-1)/2;
+        for (int i = 0; i < keyinput.length; i++) {
+			if (keyinput[i].equals("up")) {
+				answer[1]++;
+			} else if(keyinput[i].equals("down")){
+				answer[1]--;
+			} else if(keyinput[i].equals("left")){
+				answer[0]--;
+			} else if(keyinput[i].equals("right")){
+				answer[0]++;
+			}
 		}
-		System.out.println(dots[1][0]);
-		System.out.println(dots[0][0]);
-		System.out.println(dots[1][1]);
-		System.out.println(dots[0][1]);
-		System.out.println(answer);
+        if (answer[0] > maxX) {
+			answer[0] = maxX;
+		}
+        if(answer[0] < -maxX) {
+			answer[0] = -maxX;
+		}
+        if (answer[1] > maxY) {
+			 answer[1] = maxY;
+		}
+        if(answer[1] < -maxY) {
+			answer[1] = -maxY;
+		}
+        
+        for (int i : answer) {
+			System.out.println(i);
+		}
 	}
 }
 
