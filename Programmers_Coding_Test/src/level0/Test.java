@@ -21,17 +21,18 @@ public class Test {
 				answer[0]++;
 			}
 		}
-        if (answer[0] > maxX) {
-			answer[0] = maxX;
-		}
-        if(answer[0] < -maxX) {
-			answer[0] = -maxX;
-		}
+        
         if (answer[1] > maxY) {
 			 answer[1] = maxY;
 		}
         if(answer[1] < -maxY) {
 			answer[1] = -maxY;
+		}
+        if(answer[0] < -maxX) {
+			answer[0] = -maxX;
+		}
+        if (answer[0] > maxX) {
+			answer[0] = maxX;
 		}
         
         for (int i : answer) {
