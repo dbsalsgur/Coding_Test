@@ -2,6 +2,13 @@ package level0;
 
 public class PolynomialAddiction {
 	public String solution(String polynomial) {
+		String[] temp = polynomial.split(" ");
+		for (int i = 0; i < temp.length; i++) {
+			boolean judge = temp[i].contains("x");
+			if (judge) {
+				
+			}
+		}
         String answer = "";
         return answer;
     }
