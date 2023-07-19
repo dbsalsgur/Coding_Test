@@ -1,19 +1,44 @@
 package level0;
 
-import java.util.Arrays;
-
 public class Test {
 
 	public static void main(String[] args) {
-		int[] numbers = {1,2,-3,4,-5};
+		String polynomial =  "5x + x + 7 + 2x + 6";
 		
-		Arrays.sort(numbers);
-		int value1 = 0;
-		int value2 = 0;
-		value1 = numbers[0]*numbers[1];
-		value2 = numbers[numbers.length-1]*numbers[numbers.length-2];
+		String[] temp = polynomial.split(" ");
+		String variable = "";
+		int constant = 0;
+		for (int i = 0; i < temp.length; i++) {
+			boolean judge = temp[i].contains("x");
+			if (judge) {
+				variable += temp[i];
+			} else if(temp[i].contains("+")){
+				continue;
+			} else {
+				constant += Integer.parseInt(temp[i]);
+			}
+		}
 		
-        int answer = value1 > value2 ? value1 : value2;
+		String[] temp2 = variable.split("");
+		int countX = 0;
+		int coefficient = 0;
+		for (int i = 0; i < temp2.length; i++) {
+			if (temp2[i].equals("x")) {
+				countX++;
+			} else {
+				coefficient = coefficient + Integer.parseInt(temp2[i]) - 1;
+			}
+		}
+		coefficient = coefficient + countX; 
+		
+		
+        String answer = "";
+        if (constant == 0) {
+			answer = coefficient + "x";
+		} else {
+			answer = coefficient + "x" + " + " + constant;
+		}
+        
         System.out.println(answer);
 	}
 }
