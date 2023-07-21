@@ -3,40 +3,35 @@ package level0;
 public class Test {
 
 	public static void main(String[] args) {
-		String polynomial =  "5x + x + 7 + 2x + 6";
+		String my_string =  "aAb1B2cC34oOp";
 		
-		String[] temp = polynomial.split(" ");
-		String variable = "";
-		int constant = 0;
-		for (int i = 0; i < temp.length; i++) {
-			boolean judge = temp[i].contains("x");
-			if (judge) {
-				variable += temp[i];
-			} else if(temp[i].contains("+")){
+		int answer = 0;
+		String[] array = my_string.split("[a-zA-Z]");
+		int count = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+			if (array[i].equals("")) {
 				continue;
 			} else {
-				constant += Integer.parseInt(temp[i]);
+				count++;
 			}
 		}
 		
-		String[] temp2 = variable.split("");
-		int countX = 0;
-		int coefficient = 0;
-		for (int i = 0; i < temp2.length; i++) {
-			if (temp2[i].equals("x")) {
-				countX++;
+		int[] numbers = new int[count];
+		int j = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i].equals("")) {
+				System.out.println(1);
+				continue;
 			} else {
-				coefficient = coefficient + Integer.parseInt(temp2[i]) - 1;
+				numbers[j] = Integer.parseInt(array[i]+"");
+				System.out.println("value = "+"'"+numbers[j]+"'");
+				j++;
 			}
 		}
-		coefficient = coefficient + countX; 
 		
-		
-        String answer = "";
-        if (constant == 0) {
-			answer = coefficient + "x";
-		} else {
-			answer = coefficient + "x" + " + " + constant;
+		for (int k = 0; k < numbers.length; k++) {
+			answer += numbers[k];
 		}
         
         System.out.println(answer);
