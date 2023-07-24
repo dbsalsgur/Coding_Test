@@ -2,7 +2,30 @@ package level0;
 
 public class SafeZone {
 	public int solution(int[][] board) {
-        int answer = 0;
+		int[][] mineZone = new int[board.length][board.length];
+		int answer = 0;
+		int count = 0;
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (board[i][j] == 0) {
+					continue;
+				} else {
+					for (int k = i-1; k <= i+1 ; k++) {
+						for (int l = j-1; l <= j+1; l++) {
+							mineZone[k][l] = 1;
+						}
+					}
+				}
+			}
+		}
+        for (int i = 0; i < mineZone.length; i++) {
+			for (int j = 0; j < mineZone.length; j++) {
+				if (mineZone[i][j] == 1) {
+					count++;
+				}
+			}
+		}
+		answer = board.length * board.length - count;
         return answer;
     }
 }

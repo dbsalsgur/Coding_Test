@@ -3,37 +3,32 @@ package level0;
 public class Test {
 
 	public static void main(String[] args) {
-		String my_string =  "aAb1B2cC34oOp";
+		int[][] board =  {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}};
+		int[][] mineZone = new int[board.length+2][board.length+2];
 		
 		int answer = 0;
-		String[] array = my_string.split("[a-zA-Z]");
 		int count = 0;
-		
-		for (int i = 0; i < array.length; i++) {
-			if (array[i].equals("")) {
-				continue;
-			} else {
-				count++;
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (board[i][j] == 0) {
+					continue;
+				} else {
+					for (int k = (i-1)+1; k <= (i+1)+1 ; k++) {
+						for (int l = (j-1)+1; l <= (j+1)+1; l++) {
+							mineZone[k][l] = 1;
+						}
+					}
+				}
 			}
 		}
-		
-		int[] numbers = new int[count];
-		int j = 0;
-		for (int i = 0; i < array.length; i++) {
-			if (array[i].equals("")) {
-				System.out.println(1);
-				continue;
-			} else {
-				numbers[j] = Integer.parseInt(array[i]+"");
-				System.out.println("value = "+"'"+numbers[j]+"'");
-				j++;
+        for (int i = 1; i < mineZone.length-1; i++) {
+			for (int j = 1; j < mineZone.length-1; j++) {
+				if (mineZone[i][j] == 1) {
+					count++;
+				}
 			}
 		}
-		
-		for (int k = 0; k < numbers.length; k++) {
-			answer += numbers[k];
-		}
-        
+		answer = board.length * board.length - count;
         System.out.println(answer);
 	}
 }
