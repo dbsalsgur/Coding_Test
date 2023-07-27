@@ -2,16 +2,13 @@ package level0;
 
 public class CompletionConditionOfTriangle {
 	public int solution(int[] sides) {
-        int answer = 0;
+		int answer = 0;
         int a = Math.max(sides[0], sides[1]);
         int b = Math.min(sides[0], sides[1]);
-        for (int i = 0; i < a-b; i++) {
-			answer++;
-		}
-        for (int i = 0; i < a+b; i++) {
-			if (i > a) {
+        for (int i = 1; i < a+b; i++) {
+			if (i > a-b || i >= a) {
 				answer++;
-			}
+			} 
 		}
         return answer;
     }
