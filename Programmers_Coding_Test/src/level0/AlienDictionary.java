@@ -3,6 +3,9 @@ package level0;
 public class AlienDictionary {
 	public int solution(String[] spell, String[] dic) {
         int answer = 0;
+        for (int i = 0; i < dic.length; i++) {
+			
+		}
         return answer;
     }
 }
