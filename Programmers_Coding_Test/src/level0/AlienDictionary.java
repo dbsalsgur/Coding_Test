@@ -3,9 +3,23 @@ package level0;
 public class AlienDictionary {
 	public int solution(String[] spell, String[] dic) {
         int answer = 0;
-        for (int i = 0; i < dic.length; i++) {
-			
+        String key = "";
+        for (int i = 0; i < spell.length; i++) {
+        	key += "A";
 		}
+        
+        
+        for (int i = 0; i < dic.length; i++) {
+        	for (int j = 0; j < spell.length; j++) {
+				dic[i] = dic[i].replaceAll(spell[j], "A");
+			}
+        	if (dic[i].equals(key)) {
+    			answer = 1;
+    		} else {
+    			answer = 2;
+    		}
+		}
+        
         return answer;
     }
 }
