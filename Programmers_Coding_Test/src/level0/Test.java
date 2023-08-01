@@ -23,6 +23,7 @@ public class Test {
         			answer = 1;
         		} else {
         			answer = 2;
+        			break;
         		}
 			}
 		}
